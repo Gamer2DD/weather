@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#142b4a" />
+  <title>SkyCast — Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="SkyCast home"><span class="brand-icon">☀</span> SkyCast</a>
+      <span class="live-pill"><span class="live-dot"></span> LIVE WEATHER</span>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">YOUR WEATHER, AT A GLANCE</p>
+      <h1>Find your <span>forecast.</span></h1>
+      <p class="subtitle">Current conditions and the next few hours, wherever you are.</p>
+    </section>
+
+    <form id="searchForm" class="search-row">
+      <label class="search-box">
+        <span aria-hidden="true">⌕</span>
+        <input id="cityInput" type="search" placeholder="Search a city (e.g. Mumbai)" autocomplete="off" required aria-label="Search for a city" />
+      </label>
+      <button class="search-btn" type="submit">Search</button>
+    </form>
+    <button id="locationBtn" class="location-btn" type="button">◎ Use my current location</button>
+    <p id="status" class="status" role="status" aria-live="polite">Loading weather…</p>
+
+    <section id="weatherPanel" class="weather-panel" hidden>
+      <div class="weather-main">
+        <div>
+          <p id="placeName" class="place-name">Mumbai, India</p>
+          <p id="localTime" class="local-time"></p>
+          <p id="condition" class="condition">Partly cloudy</p>
+          <div class="temperature-line"><span id="temperature" class="temperature">--°</span><span id="weatherEmoji" class="weather-emoji">🌤️</span></div>
+          <p class="feels">Feels like <span id="feelsLike">--°C</span></p>
+        </div>
+        <div class="sun-art" aria-hidden="true"><div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div></div>
+      </div>
+
+      <div class="metrics-grid">
+        <article class="metric-card"><span class="metric-icon">💧</span><div><p>Humidity</p><strong id="humidity">--%</strong></div></article>
+        <article class="metric-card"><span class="metric-icon">🌬️</span><div><p>Wind speed</p><strong id="wind">-- km/h</strong></div></article>
+        <article class="metric-card"><span class="metric-icon">☁️</span><div><p>Cloud cover</p><strong id="cloud">--%</strong></div></article>
+        <article class="metric-card"><span class="metric-icon">🌡️</span><div><p>Pressure</p><strong id="pressure">-- hPa</strong></div></article>
+      </div>
+
+      <section class="forecast-section">
+        <div class="section-heading"><div><p class="eyebrow">COMING UP</p><h2>Next 6 hours</h2></div><span class="section-icon">↗</span></div>
+        <div id="hourlyForecast" class="hourly-forecast"></div>
+      </section>
+      <p class="attribution">Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></p>
+    </section>
+
+    <footer>Made for everyday explorers <span>✦</span> Works on mobile and desktop</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
